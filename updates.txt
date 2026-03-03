@@ -1,0 +1,27 @@
+1- Na tela 'Entrada de Estoque', no campo 'Quantidade' faça com que tenha dentro de parenteses a unidade que foi cadastrada do produto, exemplo: 'un' , 'm' , 'kg' , etc
+
+2- Na tela 'Novo Produto' não deve ter a label 'Valor Unitário (Custo)'.
+
+3- O campo 'Valor Unitario' deve existir para preenchimento somente na tela 'Entrada de Estoque' para que fique vinculado a algum documento fiscal.
+
+4- A exibição do campo 'Valor Unitario' deve ser igual a média de todos os valores lançados para aquele produto especifico, então para isso, deve existir um novo modulo 'Financeiro' que salva os dados escritos na tela de 'Entrada de Estoque' onde nesse modulo seja possivel visualizar a lista de 'Data Emissao' , 'Documentos Fiscais' , 'Produto' , 'Quantidade' ,'Valor Unitario' e 'Valor total'
+
+5- Na tela dos detalhes de um produto, no campo 'Valor Unitário' então deve conter a média de preço de todos os valores lançados referente ao produto
+
+6- No historico deve conter todas as ações que fizeram alguma alteração no banco de dados, e especificando qual usuario, qual ação, e a data/hora
+
+7- Mudar no nome do aplicativo, da página e nos detalhes para 'SkySmart' 
+
+8- Na tela 'Saida de Estoque' na label 'Produto' quando o item não tiver saldo está mostrando 'Saldo:' mas prefiro que tenha uma indicação mais clara de que não há nenhum item, entao mostre como 'Saldo: -' quando não tiver saldo
+
+9- Muito código no mesmo arquivo 'App.tsx' contém a interface inteira de: Dashboard, Inventory , Modais , Tabelas , Filtros , Funções de exportação. É melhor separar em componentes menores (ex: ProductTable.tsx, InventoryFilters.tsx, ExportButtons.tsx, etc
+
+10- Criar um novo item no menu de 'Configurações', e nessa parte quero que tenha a opção de backup do banco de dados, de forma que seja criado um .zip do banco de dados. O arquivo deve ser salvo por padrao na pasta de downloads do usuario, seja PC ou Mobile. O arquivo .zip nao precisa de nenhuma criptografia.
+
+---------------------------------------
+
+- Nas imagens que carregam da galeria, quando abertas estão com uma cor de fundo, mas quero que fique sem nenhuma cor de fundo, deixando apenas o fundo da pagina como se fosse desfocado, para manter o foco na imagem que foi aberta
+
+- Depois de abrir uma imagem da galeria não tem como rolar a imagem para o lado depois de aplicar zoom, entao deve ter mais controle na imagem para que seja possivel arrastar a imagem
+
+- Colocar marca da agua em todas as imagens
