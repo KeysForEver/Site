@@ -1,12 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins-300.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins-600.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 @theme {
   --color-brand-bg: #727377;
   --color-brand-hover: #15F0DB;
   --color-brand-text: #E6E7E9;
   --color-brand-dark: #1E1E1E;
-  
+
   --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Poppins", serif;
   --font-mono: "Poppins", monospace;
@@ -35,7 +74,7 @@
   .card-effect {
     @apply bg-brand-dark/5 rounded-sm border border-brand-hover/5 transition-all duration-500;
   }
-  
+
   .card-effect-hover {
     @apply hover:border-brand-hover/20 hover:bg-brand-dark/10;
   }
