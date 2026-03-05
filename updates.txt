@@ -1,53 +1,16 @@
 ---------------------------------------
-1- Todos os modais que tem campos onde o usuario deve preencher algo, deve ter um botao de limpar todos os campos, resetando assim qualquer informação adicionada
+1- Como haviamos feito antes, definir 'Estoque minimo' deve ser opcional, e a parte que definia isso como obrigatorio ou opcional sumiu. E os novos produtos estao sendo definidos com o minimo de 5 unids, mas o valor deve semppre ser informado pelo usuario do minimo, entao o padrao é deixar em minimo definido
 
-2- Fazer com que imagens sejam salvas apenas o endereço no banco de dados, e que o nome das imagens seja igual ao nome do produto para manter a estrutura robusta do app
+2- Voce retornou com o campo 'Código do Produto', mas ele não é necessário então vamos remover
 
-3- Todas as imagens adicionadas devem ser convertidas automaticamente para a extensao '.webp' antes de serem salvas
+3- Vamos padronizar todos os modais para ocuparem 2/3 da tela, garantindo assim um espaço adequado para preenchimento dos campos
 
-4- Faça com que o backup gerado em '.zip' inclua os arquivos de imagem tambem
+4- Por padrao na tela de 'Estoque' deixa a opção de 'Colunas' desmarcado para o 'ID', caso o usuario queria ele marca essa opção depois
 
-5- Na tela 'Entrada de Estoque' no campo 'PRODUTO' faça com que seja possivel pesquisar os itens da lista digitando e filtrando automaticamente a cada caracter o que tem haver com os itens da lista
+5- Na tela de configurações retire o card de 'Segurança do Sistema', deixe apenas o card de 'backup'
 
-6- Faça que todo o texto digitado pelo usuario em qualquer campo seja sempre salvo em maisculo
+6- No modal 'OPÇÕES DE EXPORTAÇÃO PDF' depois de gerar o .pdf no botao 'GERAR PDF' faça com que o modal seja fechado 
 
-7- Faça com que todo o texto de todas as opções de todo o programa seja com as letras em maisculo, com a unica exceção do nome do aplicativo que deve ser mantido como 'SkySmart'
+7- O Horario no estoque esta 3 horas na frente do meu fuso horario que é o mesmo de Sao Paulo/Brasil. Ajuste para que seja considerado a hora do meu fuso
 
-1.0- Retire o campo de 'Data de validade' da aplicação, esse campo não será mais usado
-
-9- Faça com que o campo 'DOCUMENTO FISCAL' e 'VALOR UNITARIO' não seja obrigatorio de preenchimento
-
-10- Queria uma forma de adicionar varios produtos de uma vez, tipo um arquivo vindo de um .csv. por exemplo, enviar um arquivo assim 'NOME PRODUTO;CATEGORIA;UNIDADE
-FITA ADESIVA 0,045 X 100 M ; FITAS E FIXAÇÃO ; ROLO
-FITA ADESIVA 0,045 X 40 M ; FITAS E FIXAÇÃO ; ROLO
-FILME PVC PLÁSTICO 0,28 X 100 M ; EMBALAGEM E PROTEÇÃO ; ROLO' e caso a unidade não exista no sistema, entao aceitar essa do .csv e criar automaticamente
-
-11- Na tela do 'Painel' não precisa do card de 'Atividades Recentes' já que agora temos a opção de historico
-
-12- Na tela de 'Historico' nao precisa dos 3 pontinhos no final de cada item, pois nao deve ser implementando nenhuma opção nessas linhas
-
-13- 
-
----------------------------------------
-
-1- 
-
-2- 
-
-3- 
-
-4- 
-
-5- 
-
-6-
-
-7-
-
-8- 
-
-9- 
-
-10-
-
----------------------------------------
+8- Quando faço o npm install no projeto esta sendo criado o 'readme.md' mas nao preciso dele
