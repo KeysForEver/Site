@@ -17,7 +17,9 @@
 
 9- Adicionar na tela de 'Entrada de Produto' um campo para fazer upload de nota fiscal, onde deve ser um botao e quando clicado abre a opção de selecionar um arquivo para o upload, aceitar apenas em .pdf. e adicionar um local no banco de dados para armazenar as notas fiscais
 
-10- 
+10-
 
 
 ALTERAR NO INDEX OS DADOS BASICOS
+
+a
