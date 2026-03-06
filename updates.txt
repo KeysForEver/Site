@@ -1,16 +1,23 @@
 ---------------------------------------
-1- Como haviamos feito antes, definir 'Estoque minimo' deve ser opcional, e a parte que definia isso como obrigatorio ou opcional sumiu. E os novos produtos estao sendo definidos com o minimo de 5 unids, mas o valor deve semppre ser informado pelo usuario do minimo, entao o padrao é deixar em minimo definido
+1- A tela 'Detalhes do Produto' esta abrindo um modal lateral, mas eu quero que todos os modais sejam o padrao de abrir a tela no meio ocupando 2/3 da tela, lembra ?
 
-2- Voce retornou com o campo 'Código do Produto', mas ele não é necessário então vamos remover
+2- Na tela de 'Estoque' onde tem os 3 pontinhos no final de cada linha de produto, retire a opção 'Estoque Minimo', vamos definir esse estoque minimo apenas quando editamos algum item do estoque
 
-3- Vamos padronizar todos os modais para ocuparem 2/3 da tela, garantindo assim um espaço adequado para preenchimento dos campos
+3- Na tela de 'Destalhes do Produto' a parte 'Estoque Atual' esta com uma cor do texto diferente dos outros textos, mas eu nao quero destaque nesse campo. O unico campo que deve ter essa cor diferente é o de 'Valor Total' que atualmente já esta meio verde
 
-4- Por padrao na tela de 'Estoque' deixa a opção de 'Colunas' desmarcado para o 'ID', caso o usuario queria ele marca essa opção depois
+4- Na tela de 'Detalhes do Produto' adicione um botao para 'Editar o produto' e retire essa opção de 'Editar Produto' no menu dos 3 pontinhos que existe no final de cada linha de produto
 
-5- Na tela de configurações retire o card de 'Segurança do Sistema', deixe apenas o card de 'backup'
+5- No modo celular, eu nao consigo cadastrar um novo produto porque nao consigo arrastar a tela para o lado ate aparecer o botao, entao preciso que ajuste de alguma forma nos modos celulares para que seja possivel arrastar a tela para ver todo o conteudo da pagina
 
-6- No modal 'OPÇÕES DE EXPORTAÇÃO PDF' depois de gerar o .pdf no botao 'GERAR PDF' faça com que o modal seja fechado 
+6- Na tela do 'KANBAN' os itens dos cards tem que ser de acordo com os itens da lista de 'ORDEM DE PROCUÇÃO' deve existir esse vinculo, entao sempre que for criado ou excluido algum item da ordens de produção isso reflete no kanban
 
-7- O Horario no estoque esta 3 horas na frente do meu fuso horario que é o mesmo de Sao Paulo/Brasil. Ajuste para que seja considerado a hora do meu fuso
+7- Na tela de Painel, pensei em melhorar o dashboard de forma que tenha botoes vinculados a alguma ação, tipo tem o card de estoque baixo, entao quando for clicado nele, vai para a tela de 'Estoque' com o filtro de apenas itens com 'Estoque baixo' entende ? E pode remover o grafico de 'Movimentações de Estoque' , eu precisaria de graficos que fazem mais sentido para um dashboard
 
-8- Quando faço o npm install no projeto esta sendo criado o 'readme.md' mas nao preciso dele
+8- Na tela de 'Entrada de produto' adicionar um campo de 'XML' e colocar um botao ao lado que seja referente a captura do codigo de barras de nota fiscal, e transcrição do numero para esse campo 'XML'. Para celular abrir a camera para ler o codigo de barras, e quando for versao PC usar o leitor de codigo de barras
+
+9- Adicionar na tela de 'Entrada de Produto' um campo para fazer upload de nota fiscal, onde deve ser um botao e quando clicado abre a opção de selecionar um arquivo para o upload, aceitar apenas em .pdf. e adicionar um local no banco de dados para armazenar as notas fiscais
+
+10- 
+
+
+ALTERAR NO INDEX OS DADOS BASICOS
