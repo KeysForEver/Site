@@ -1,25 +1,19 @@
----------------------------------------
-1- A tela 'Detalhes do Produto' esta abrindo um modal lateral, mas eu quero que todos os modais sejam o padrao de abrir a tela no meio ocupando 2/3 da tela, lembra ?
+1. Na tela 'ORDENS DE PRODUCAO' o icone de editar os itens está como um 'x' e tem outro icone da lixeira para excluir, mas eu quero que esse app tenha padrao, entao faça com que nessa tela tenha os mesmos padroes feitos para itens na tela de 'ESTOQUE'. Por exemplo, quando se clicar em algum item da lista, abre um modal, nesse modal tem o botao de editar, no fim de cada linha tem o icone de 3 pontinhos, e dentro dele a opção de deletar, etc
 
-2- Na tela de 'Estoque' onde tem os 3 pontinhos no final de cada linha de produto, retire a opção 'Estoque Minimo', vamos definir esse estoque minimo apenas quando editamos algum item do estoque
+2. Na tela 'KANBAN' quando fui deslocar o cartao do exemplo ele sumiu e nao voltou mais, entao quero que reveja a logica dessa tela para garantir que cada quadro nao suma, ele deve sempre estar contido em alguma coluna
 
-3- Na tela de 'Destalhes do Produto' a parte 'Estoque Atual' esta com uma cor do texto diferente dos outros textos, mas eu nao quero destaque nesse campo. O unico campo que deve ter essa cor diferente é o de 'Valor Total' que atualmente já esta meio verde
+3. Os botoes 'COLUNAS' , 'PDF' , 'CSV' que existem na tela de 'ESTOQUE' quero que tenham tambem nas telas de 'ORDEM DE PRODUÇÃO' , 'CLIENTES' , 'FORNECEDORES' , 'PATRIMONIOS' , 'FINANCEIRO'
 
-4- Na tela de 'Detalhes do Produto' adicione um botao para 'Editar o produto' e retire essa opção de 'Editar Produto' no menu dos 3 pontinhos que existe no final de cada linha de produto
+4. Na tela 'ENTRADA DE ESTOQUE' vamos mudar a ordem dos campos. Na primeira linha deixe apenas 'PRODUTO' , na segunda linha deixe 'QUANTIDADE' e 'LOCALIZAÇÃO' , na terceira linha deixe 'FORNECEDOR' e 'DOCUMENTO FISCAL' , na quarta linha deixe 'NOTA FISCAL (PDF)' e 'XML' , na quinta linha deixe 'DATA DE EMISSAO' E 'VALOR UNITÁRIO (R$)' e na sexta linha 
 
-5- No modo celular, eu nao consigo cadastrar um novo produto porque nao consigo arrastar a tela para o lado ate aparecer o botao, entao preciso que ajuste de alguma forma nos modos celulares para que seja possivel arrastar a tela para ver todo o conteudo da pagina
+5. No botao do 'XML' crie uma logica que caso nao seja possivel abrir alguma ferramenta para ler a imagem, retorne uma tela de erro para o usuario. Exemplo, rodando no modo pc e nao tem nenhum leitor de codigo de barras, ou webcam instalado, entao nao é possivel ler o codigo, entao deve ter um erro para informar
 
-6- Na tela do 'KANBAN' os itens dos cards tem que ser de acordo com os itens da lista de 'ORDEM DE PROCUÇÃO' deve existir esse vinculo, entao sempre que for criado ou excluido algum item da ordens de produção isso reflete no kanban
+6. No campo de 'NOTA FISCAL (PDF)' faça com que tenha uma lista dos arquivos que foram selecionados para upload, e permita varios arquivos .pdf de acordo com a adição do usuario, onde a lista seja igual ao nome do arquivo enviado
 
-7- Na tela de Painel, pensei em melhorar o dashboard de forma que tenha botoes vinculados a alguma ação, tipo tem o card de estoque baixo, entao quando for clicado nele, vai para a tela de 'Estoque' com o filtro de apenas itens com 'Estoque baixo' entende ? E pode remover o grafico de 'Movimentações de Estoque' , eu precisaria de graficos que fazem mais sentido para um dashboard
+7. Nos modais, quando existir o botao de adicionar uma nova opção da lista, como por exemplo na tela 'EDITAR PRODUTO' existe o botao para adicionar categoria, eu quero que todos esse botoes de adição que existam dentro dos modais, abram as opções como um novo modal em vez de sugir uma nova linha como esta atualmente. 
 
-8- Na tela de 'Entrada de produto' adicionar um campo de 'XML' e colocar um botao ao lado que seja referente a captura do codigo de barras de nota fiscal, e transcrição do numero para esse campo 'XML'. Para celular abrir a camera para ler o codigo de barras, e quando for versao PC usar o leitor de codigo de barras
+8. Retire o botao de modo claro/escuro, já que o sistema define a cor baseado na configuração do sistema do usuario, deixe assim mesmo que ficou bom, entao nao precisa do botao para alterar isso
 
-9- Adicionar na tela de 'Entrada de Produto' um campo para fazer upload de nota fiscal, onde deve ser um botao e quando clicado abre a opção de selecionar um arquivo para o upload, aceitar apenas em .pdf. e adicionar um local no banco de dados para armazenar as notas fiscais
+9. Revise a logica do botao de 'COLUNAS' pois tem vezes que ele nao funciona depois de abrir uma vez. Eu fico clicando, mas nao abre as opções
 
-10-
-
-
-ALTERAR NO INDEX OS DADOS BASICOS
-
-a
+--> NO INDEX HTML MUDAR 'EN' 
