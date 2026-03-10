@@ -1,19 +1,67 @@
-1. Na tela 'ORDENS DE PRODUCAO' o icone de editar os itens está como um 'x' e tem outro icone da lixeira para excluir, mas eu quero que esse app tenha padrao, entao faça com que nessa tela tenha os mesmos padroes feitos para itens na tela de 'ESTOQUE'. Por exemplo, quando se clicar em algum item da lista, abre um modal, nesse modal tem o botao de editar, no fim de cada linha tem o icone de 3 pontinhos, e dentro dele a opção de deletar, etc
+1- Nas telas de 'ORDEM PRODUCAO' , 'CLIENTES' , 'FORNECEDORES' , 'PATRIMONIOS' , 'ESTOQUE' , 'FINANCEIRO' remover do final de cada linha dos itens o icone dos 3 pontinhos, pois nao precisa mais repetir a opção de excluir nesse icone
 
-2. Na tela 'KANBAN' quando fui deslocar o cartao do exemplo ele sumiu e nao voltou mais, entao quero que reveja a logica dessa tela para garantir que cada quadro nao suma, ele deve sempre estar contido em alguma coluna
+2- O botao de 'COLUNAS' das telas não esta funcionando, eu clico e nao aparece mais a opção de filtrar as colunas de interesse
 
-3. Os botoes 'COLUNAS' , 'PDF' , 'CSV' que existem na tela de 'ESTOQUE' quero que tenham tambem nas telas de 'ORDEM DE PRODUÇÃO' , 'CLIENTES' , 'FORNECEDORES' , 'PATRIMONIOS' , 'FINANCEIRO'
+3- Nos campos que são obrigatorios preenchimento, fazer uma marcação para o usuario saber o que deve preencher
 
-4. Na tela 'ENTRADA DE ESTOQUE' vamos mudar a ordem dos campos. Na primeira linha deixe apenas 'PRODUTO' , na segunda linha deixe 'QUANTIDADE' e 'LOCALIZAÇÃO' , na terceira linha deixe 'FORNECEDOR' e 'DOCUMENTO FISCAL' , na quarta linha deixe 'NOTA FISCAL (PDF)' e 'XML' , na quinta linha deixe 'DATA DE EMISSAO' E 'VALOR UNITÁRIO (R$)' e na sexta linha 
+4- Na tela de 'Movimentações' a data selecionada no 'ATÉ' não esta considerando os registros que sao iguais a essa data final, mas deveria ser considerado o mesmo dia, entao arrume isso
 
-5. No botao do 'XML' crie uma logica que caso nao seja possivel abrir alguma ferramenta para ler a imagem, retorne uma tela de erro para o usuario. Exemplo, rodando no modo pc e nao tem nenhum leitor de codigo de barras, ou webcam instalado, entao nao é possivel ler o codigo, entao deve ter um erro para informar
+5- Durante meu teste estou tendo as saidas 'Server running on http://localhost:3000
+PayloadTooLargeError: request entity too large
+    at readStream (C:\Users\Sky\Desktop\SkyPulse\node_modules\raw-body\index.js:163:17)
+    at getRawBody (C:\Users\Sky\Desktop\SkyPulse\node_modules\raw-body\index.js:116:12)
+    at read (C:\Users\Sky\Desktop\SkyPulse\node_modules\body-parser\lib\read.js:79:3)
+    at jsonParser (C:\Users\Sky\Desktop\SkyPulse\node_modules\body-parser\lib\types\json.js:138:5)
+    at Layer.handle [as handle_request] (C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\router\index.js:286:9
+    at router.process_params (C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\router\index.js:280:10)
+    at expressInit (C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\middleware\init.js:40:5)
+    at Layer.handle [as handle_request] (C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\router\index.js:286:9
+    at router.process_params (C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\router\index.js:280:10)
+    at query (C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\middleware\query.js:45:5)
+    at Layer.handle [as handle_request] (C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\router\index.js:286:9
+    at router.process_params (C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\router\index.js:280:10)
+    at router.handle (C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\router\index.js:175:3)
+    at app.handle (C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\application.js:181:10)
+    at Server.app (C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\express.js:39:9)
+    at Server.emit (node:events:508:28)
+    at parserOnIncoming (node:_http_server:1210:12)
+    at HTTPParser.parserOnHeadersComplete (node:_http_common:125:17)
+PayloadTooLargeError: request entity too large
+    at readStream (C:\Users\Sky\Desktop\SkyPulse\node_modules\raw-body\index.js:163:17)
+    at getRawBody (C:\Users\Sky\Desktop\SkyPulse\node_modules\raw-body\index.js:116:12)
+    at read (C:\Users\Sky\Desktop\SkyPulse\node_modules\body-parser\lib\read.js:79:3)
+    at jsonParser (C:\Users\Sky\Desktop\SkyPulse\node_modules\body-parser\lib\types\json.js:138:5)
+    at Layer.handle [as handle_request] (C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\router\index.js:286:9
+    at router.process_params (C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\router\index.js:280:10)
+    at expressInit (C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\middleware\init.js:40:5)
+    at Layer.handle [as handle_request] (C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\router\index.js:286:9
+    at router.process_params (C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\router\index.js:280:10)
+    at query (C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\middleware\query.js:45:5)
+    at Layer.handle [as handle_request] (C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\router\index.js:286:9
+    at router.process_params (C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\router\index.js:280:10)
+    at router.handle (C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\router\index.js:175:3)
+    at app.handle (C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\application.js:181:10)
+    at Server.app (C:\Users\Sky\Desktop\SkyPulse\node_modules\express\lib\express.js:39:9)
+    at Server.emit (node:events:508:28)
+    at parserOnIncoming (node:_http_server:1210:12)
+    at HTTPParser.parserOnHeadersComplete (node:_http_common:125:17)' consegue arrumar ?
 
-6. No campo de 'NOTA FISCAL (PDF)' faça com que tenha uma lista dos arquivos que foram selecionados para upload, e permita varios arquivos .pdf de acordo com a adição do usuario, onde a lista seja igual ao nome do arquivo enviado
-
-7. Nos modais, quando existir o botao de adicionar uma nova opção da lista, como por exemplo na tela 'EDITAR PRODUTO' existe o botao para adicionar categoria, eu quero que todos esse botoes de adição que existam dentro dos modais, abram as opções como um novo modal em vez de sugir uma nova linha como esta atualmente. 
-
-8. Retire o botao de modo claro/escuro, já que o sistema define a cor baseado na configuração do sistema do usuario, deixe assim mesmo que ficou bom, entao nao precisa do botao para alterar isso
-
-9. Revise a logica do botao de 'COLUNAS' pois tem vezes que ele nao funciona depois de abrir uma vez. Eu fico clicando, mas nao abre as opções
-
---> NO INDEX HTML MUDAR 'EN' 
+6-
