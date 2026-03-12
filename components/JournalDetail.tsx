@@ -1,22 +1,35 @@
 import React from 'react';
-import { JournalArticle } from '../types';
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import { JOURNAL_ARTICLES } from '../constants';
 
 interface JournalDetailProps {
-  article: JournalArticle;
-  onBack: () => void;
-  onNavigateToContact?: () => void;
+  isContactPage?: boolean;
 }
 
-const JournalDetail: React.FC<JournalDetailProps> = ({ article, onBack, onNavigateToContact }) => {
-  const isContactPage = article.id === 7;
-  const bgClass = '';
+const JournalDetail: React.FC<JournalDetailProps> = ({ isContactPage = false }) => {
+  const { slug } = useParams<{ slug: string }>();
+  const navigate = useNavigate();
+  
+  const article = isContactPage 
+    ? JOURNAL_ARTICLES.find(a => a.id === 7)
+    : JOURNAL_ARTICLES.find(a => a.slug === slug);
+
+  if (!article) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-2xl font-serif text-brand-text mb-4">Artigo não encontrado</h2>
+          <Link to="/" className="text-brand-hover hover:underline">Voltar para Home</Link>
+        </div>
+      </div>
+    );
+  }
+
   const cardBgClass = 'bg-brand-dark/5';
   const titleColorClass = 'text-brand-hover';
-  const textColorClass = 'text-brand-text';
-  const proseClass = 'prose-invert';
 
   return (
-    <div className={`min-h-screen ${bgClass} animate-fade-in-up`}>
+    <div className={`min-h-screen animate-fade-in-up`}>
        <div className="w-full h-[50vh] md:h-[60vh] relative overflow-hidden">
           <img 
              src={article.image} 
@@ -30,7 +43,7 @@ const JournalDetail: React.FC<JournalDetailProps> = ({ article, onBack, onNaviga
           <div className={`${cardBgClass} p-8 md:p-16 backdrop-blur-md border border-brand-hover/10 rounded-sm`}>
              <div className="flex justify-between items-center mb-12 border-b border-brand-hover/20 pb-8">
                 <button 
-                  onClick={onBack}
+                  onClick={() => navigate(-1)}
                   className={`group flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-brand-text hover:text-brand-hover transition-colors`}
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 group-hover:-translate-x-1 transition-transform">
@@ -64,16 +77,12 @@ const JournalDetail: React.FC<JournalDetailProps> = ({ article, onBack, onNaviga
 
              {!isContactPage && (
                <div className="mt-12 flex justify-center">
-                 <button 
-                   onClick={() => {
-                     if (onNavigateToContact) {
-                       onNavigateToContact();
-                     }
-                   }}
+                 <Link 
+                   to="/contato"
                    className="bg-brand-hover text-brand-bg px-12 py-4 rounded-sm uppercase tracking-widest font-bold hover:bg-brand-hover/80 transition-all shadow-lg shadow-brand-hover/20"
                  >
                    FALE CONOSCO !
-                 </button>
+                 </Link>
                </div>
              )}
 

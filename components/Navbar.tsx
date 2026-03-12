@@ -1,18 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { BRAND_NAME, JOURNAL_ARTICLES } from '../constants';
 import { MessageCircle, ChevronDown } from 'lucide-react';
-import { JournalArticle } from '../types';
 import { motion, AnimatePresence } from 'framer-motion';
 
-interface NavbarProps {
-  onNavClick: (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => void;
-  onArticleClick: (article: JournalArticle) => void;
-}
-
-const Navbar: React.FC<NavbarProps> = ({ onNavClick, onArticleClick }) => {
+const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,9 +19,36 @@ const Navbar: React.FC<NavbarProps> = ({ onNavClick, onArticleClick }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+  const scrollToSection = (targetId: string) => {
+    const element = document.getElementById(targetId);
+    if (element) {
+      const headerOffset = 85;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+  };
+
+  const handleHomeLinkClick = (e: React.MouseEvent, targetId?: string) => {
+    e.preventDefault();
     setMobileMenuOpen(false);
-    onNavClick(e, targetId);
+    
+    if (location.pathname !== '/') {
+      navigate('/');
+      if (targetId) {
+        setTimeout(() => scrollToSection(targetId), 100);
+      }
+    } else {
+      if (targetId) {
+        scrollToSection(targetId);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
   };
 
   const textColorClass = 'text-brand-text';
@@ -83,13 +107,9 @@ const Navbar: React.FC<NavbarProps> = ({ onNavClick, onArticleClick }) => {
         }`}
       >
         <div className="w-full max-w-[1800px] mx-auto px-4 md:px-8 flex items-center justify-between">
-          <a 
-            href="#" 
-            onClick={(e) => {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                onNavClick(e, '');
-            }}
+          <Link 
+            to="/" 
+            onClick={(e) => handleHomeLinkClick(e)}
             className="z-50 relative block"
           >
             <img 
@@ -97,44 +117,37 @@ const Navbar: React.FC<NavbarProps> = ({ onNavClick, onArticleClick }) => {
               alt={BRAND_NAME} 
               className="h-12 md:h-16 w-auto transition-all duration-500"
             />
-          </a>
+          </Link>
           
           <div className={`hidden md:flex items-center gap-10 text-sm font-medium tracking-widest uppercase transition-colors duration-500 ${textColorClass}`}>
-            <a 
-              href="#" 
-              onClick={(e) => {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                onNavClick(e, '');
-              }} 
+            <Link 
+              to="/" 
+              onClick={(e) => handleHomeLinkClick(e)} 
               className="hover:text-brand-hover transition-colors whitespace-nowrap"
             >
               Home
-            </a>
+            </Link>
             
             <div 
               className="relative group py-2"
               onMouseEnter={() => setDropdownOpen(true)}
               onMouseLeave={() => setDropdownOpen(false)}
             >
-              <a 
-                href="#journal" 
-                onClick={(e) => handleLinkClick(e, 'journal')} 
+              <button 
+                onClick={(e) => handleHomeLinkClick(e, 'produtos')} 
                 className="hover:text-brand-hover transition-colors flex items-center gap-1"
               >
-                Produtos <ChevronDown size={14} className={`transition-transform duration-300 ${dropdownOpen ? 'rotate-180' : ''}`} />
-              </a>
+                PRODUTOS <ChevronDown size={14} className={`transition-transform duration-300 ${dropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
               
               <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-4 transition-all duration-300 ${dropdownOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'}`}>
                 <div className="bg-brand-bg border border-brand-hover shadow-xl py-6 min-w-[280px] rounded-sm">
                   {JOURNAL_ARTICLES.filter(a => a.id !== 7).map((article) => (
-                    <a 
+                    <Link 
                       key={article.id}
-                      href="#journal"
-                      onClick={(e) => {
-                        e.preventDefault();
+                      to={`/produtos/${article.slug}`}
+                      onClick={() => {
                         setDropdownOpen(false);
-                        onArticleClick(article);
                       }}
                       className="flex items-center gap-3 px-8 py-3 text-[11px] tracking-[0.15em] text-brand-text/80 hover:text-brand-hover hover:bg-white/5 transition-colors"
                     >
@@ -142,23 +155,18 @@ const Navbar: React.FC<NavbarProps> = ({ onNavClick, onArticleClick }) => {
                         <img src={article.submenuIcon} alt="" className="h-6 w-auto object-contain" referrerPolicy="no-referrer" />
                       )}
                       <span>{article.title}</span>
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
             </div>
 
-            <a 
-              href="#footer" 
-              onClick={(e) => {
-                e.preventDefault();
-                const contactArticle = JOURNAL_ARTICLES.find(a => a.id === 7);
-                if (contactArticle) onArticleClick(contactArticle);
-              }} 
+            <Link 
+              to="/contato" 
               className="hover:text-brand-hover transition-colors whitespace-nowrap"
             >
-              Vamos Conversar ?
-            </a>
+              VAMOS CONVERSAR ?
+            </Link>
           </div>
 
           <div className={`flex items-center gap-3 md:gap-6 z-50 relative transition-colors duration-500 ${textColorClass}`}>
@@ -228,41 +236,35 @@ const Navbar: React.FC<NavbarProps> = ({ onNavClick, onArticleClick }) => {
               variants={containerVariants}
               initial="hidden"
               animate="visible"
-              className="flex flex-col items-center space-y-8 text-xl font-serif font-medium text-brand-text w-full px-8 pt-32 pb-12"
+              className="flex flex-col items-center space-y-8 text-xl font-serif font-medium text-brand-text w-full px-8 pt-32 pb-12 uppercase tracking-widest"
             >
-              <motion.a 
-                variants={itemVariants}
-                href="#" 
-                onClick={(e) => {
-                  e.preventDefault();
-                  setMobileMenuOpen(false);
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                  onNavClick(e, '');
-                }} 
-                className="hover:text-brand-hover transition-colors"
-              >
-                Home
-              </motion.a>
+              <motion.div variants={itemVariants}>
+                <Link 
+                  to="/" 
+                  onClick={(e) => handleHomeLinkClick(e)} 
+                  className="hover:text-brand-hover transition-colors"
+                >
+                  Home
+                </Link>
+              </motion.div>
               
               <motion.div variants={itemVariants} className="flex flex-col items-center w-full">
                 <button 
                   onClick={() => setDropdownOpen(!dropdownOpen)}
                   className="hover:text-brand-hover transition-colors flex items-center gap-2 mb-4"
                 >
-                  Produtos <ChevronDown size={20} className={`transition-transform duration-300 ${dropdownOpen ? 'rotate-180' : ''}`} />
+                  PRODUTOS <ChevronDown size={20} className={`transition-transform duration-300 ${dropdownOpen ? 'rotate-180' : ''}`} />
                 </button>
                 
                 {dropdownOpen && (
                   <div className="flex flex-col items-center space-y-4 mb-4 animate-fade-in">
                     {JOURNAL_ARTICLES.filter(a => a.id !== 7).map((article) => (
-                      <a 
+                      <Link 
                         key={article.id}
-                        href="#journal"
-                        onClick={(e) => {
-                          e.preventDefault();
+                        to={`/produtos/${article.slug}`}
+                        onClick={() => {
                           setMobileMenuOpen(false);
                           setDropdownOpen(false);
-                          onArticleClick(article);
                         }}
                         className="flex flex-col items-center gap-2 text-sm font-sans uppercase tracking-widest text-brand-text/70 hover:text-brand-hover text-center w-full max-w-[250px]"
                       >
@@ -270,25 +272,21 @@ const Navbar: React.FC<NavbarProps> = ({ onNavClick, onArticleClick }) => {
                           <img src={article.submenuIcon} alt="" className="h-10 w-auto object-contain mx-auto" referrerPolicy="no-referrer" />
                         )}
                         <span className="block w-full">{article.title}</span>
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 )}
               </motion.div>
 
-              <motion.a 
-                variants={itemVariants}
-                href="#footer" 
-                onClick={(e) => {
-                  e.preventDefault();
-                  setMobileMenuOpen(false);
-                  const contactArticle = JOURNAL_ARTICLES.find(a => a.id === 7);
-                  if (contactArticle) onArticleClick(contactArticle);
-                }} 
-                className="hover:text-brand-hover transition-colors"
-              >
-                Vamos Conversar ?
-              </motion.a>
+              <motion.div variants={itemVariants}>
+                <Link 
+                  to="/contato" 
+                  onClick={() => setMobileMenuOpen(false)} 
+                  className="hover:text-brand-hover transition-colors"
+                >
+                  VAMOS CONVERSAR ?
+                </Link>
+              </motion.div>
               
               <motion.div variants={itemVariants} className="flex items-center gap-8 mt-8">
                 <a 

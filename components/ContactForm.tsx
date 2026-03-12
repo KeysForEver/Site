@@ -31,10 +31,22 @@ const ContactForm: React.FC = () => {
     setStatus('sending');
     
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Erro ao enviar e-mail');
+      }
+
       setStatus('success');
       setFormData({ nome: '', email: '', telefone: '', mensagem: '' });
     } catch (error) {
+      console.error('Error sending email:', error);
       setStatus('error');
     }
   };

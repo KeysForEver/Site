@@ -1,11 +1,7 @@
 import React from 'react';
 import { MapPin } from 'lucide-react';
 
-interface FooterProps {
-  onLinkClick: (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => void;
-}
-
-const Footer: React.FC<FooterProps> = ({ onLinkClick }) => {
+const Footer: React.FC = () => {
   return (
     <footer className="bg-brand-bg/80 border-t border-brand-hover/20 py-12 px-6 text-brand-text">
       <div className="max-w-[1800px] mx-auto flex flex-col lg:flex-row items-center gap-12">

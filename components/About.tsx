@@ -5,8 +5,8 @@ import ImageCarousel from './ImageCarousel';
 const About: React.FC = () => {
   const slideInLeft = {
     hidden: { opacity: 0, x: -50 },
-    visible: {
-      opacity: 1,
+    visible: { 
+      opacity: 1, 
       x: 0,
       transition: { duration: 1, ease: [0.21, 0.47, 0.32, 0.98] }
     }
@@ -14,8 +14,8 @@ const About: React.FC = () => {
 
   const slideInRight = {
     hidden: { opacity: 0, x: 50 },
-    visible: {
-      opacity: 1,
+    visible: { 
+      opacity: 1, 
       x: 0,
       transition: { duration: 1, ease: [0.21, 0.47, 0.32, 0.98] }
     }
@@ -23,8 +23,8 @@ const About: React.FC = () => {
 
   const imageVariants = {
     hidden: { scale: 1.1, opacity: 0, filter: 'blur(10px)' },
-    visible: {
-      scale: 1,
+    visible: { 
+      scale: 1, 
       opacity: 1,
       filter: 'blur(0px)',
       transition: { duration: 1.4, ease: "easeOut" }
@@ -34,20 +34,20 @@ const About: React.FC = () => {
   return (
     <section id="about" className="pt-32 overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[80vh]">
-        <motion.div
+        <motion.div 
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={slideInLeft}
           className="order-2 lg:order-1 relative h-[500px] lg:h-auto overflow-hidden"
         >
-           <ImageCarousel
-             images={['/identidade_visual/01.jpg', '/identidade_visual/02.jpg', '/identidade_visual/03.jpg']}
+           <ImageCarousel 
+             images={['/identidade_visual/01.webp', '/identidade_visual/02.webp', '/identidade_visual/03.webp']}
              alt="Identidade Visual"
              className="absolute inset-0 w-full h-full"
            />
         </motion.div>
-        <motion.div
+        <motion.div 
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -65,7 +65,7 @@ const About: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[80vh]">
-        <motion.div
+        <motion.div 
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -79,15 +79,15 @@ const About: React.FC = () => {
              Para entregarmos projetos com resultado estético de alta qualidade contamos com pessoas muito bem treinadas e equipamentos de alta tecnologia e precisão alinhados à processos de produção cada dia mais eficientes para economizar tempo e matéria prima.
            </p>
         </motion.div>
-        <motion.div
+        <motion.div 
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={slideInRight}
           className="relative h-[500px] lg:h-auto overflow-hidden"
         >
-           <ImageCarousel
-             images={['/identidade_visual/04.jpg', '/identidade_visual/05.jpg', '/identidade_visual/06.jpg']}
+           <ImageCarousel 
+             images={['/identidade_visual/04.webp', '/identidade_visual/05.webp', '/identidade_visual/06.webp']}
              alt="Comunicação Visual"
              className="absolute inset-0 w-full h-full brightness-90"
            />

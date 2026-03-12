@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ZoomIn, ZoomOut, Maximize2, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -54,6 +54,7 @@ const DEFAULT_CATEGORIES: GalleryCategory[] = [
 const ProductGallery: React.FC<ProductGalleryProps> = ({ categories = DEFAULT_CATEGORIES }) => {
   const [selectedIndex, setSelectedIndex] = useState<{ catIdx: number; imgIdx: number } | null>(null);
   const [zoom, setZoom] = useState(1);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const selectedImage = selectedIndex !== null 
     ? categories[selectedIndex.catIdx].images[selectedIndex.imgIdx] 
@@ -186,7 +187,7 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({ categories = DEFAULT_CA
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-2 md:p-10"
+              className="fixed inset-0 z-[100] flex items-center justify-center backdrop-blur-xl bg-black/40 p-2 md:p-10"
               onClick={closeModal}
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
@@ -196,7 +197,7 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({ categories = DEFAULT_CA
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.9, opacity: 0 }}
-                className="relative w-full max-w-[95vw] md:max-w-[80vw] max-h-[90vh] overflow-hidden bg-brand-bg flex items-center justify-center"
+                className="relative w-full max-w-[95vw] md:max-w-[80vw] max-h-[90vh] overflow-hidden flex items-center justify-center"
                 onClick={(e) => e.stopPropagation()}
               >
                 <button 
@@ -240,18 +241,28 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({ categories = DEFAULT_CA
                   </button>
                 </div>
 
-                <div className="w-full h-full overflow-auto flex items-center justify-center p-4">
+                <div ref={containerRef} className="w-full h-full overflow-hidden flex items-center justify-center p-4">
                   <motion.img 
                     key={selectedImage}
                     src={selectedImage} 
                     alt="Gallery Preview"
                     initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0, scale: zoom }}
+                    animate={{ opacity: 1, x: 0, y: 0, scale: zoom }}
+                    drag={zoom > 1}
+                    dragConstraints={{
+                      left: -500 * (zoom - 1),
+                      right: 500 * (zoom - 1),
+                      top: -500 * (zoom - 1),
+                      bottom: 500 * (zoom - 1)
+                    }}
+                    dragElastic={0.1}
                     transition={{ 
                       scale: { type: 'spring', stiffness: 300, damping: 30 },
-                      opacity: { duration: 0.2 }
+                      opacity: { duration: 0.2 },
+                      x: { type: 'spring', stiffness: 300, damping: 30 },
+                      y: { type: 'spring', stiffness: 300, damping: 30 }
                     }}
-                    className="max-w-full max-h-full object-contain cursor-zoom-in"
+                    className={`max-w-full max-h-full object-contain ${zoom > 1 ? 'cursor-grab active:cursor-grabbing' : 'cursor-zoom-in'}`}
                     onClick={toggleZoom}
                     referrerPolicy="no-referrer"
                   />
