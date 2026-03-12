@@ -1,0 +1,58 @@
+
+Na tela 'ORDENS DE PRODUÇÃO' quero que o botão 'NOVO' crie o fluxo de telas para preenchimento de uma nova ordem de produção, dividido em etapas sequenciais (1/11, 2/11, …, 11/11). Cada tela contém campos obrigatórios e/ou opções de seleção, com possibilidade de adicionar itens personalizados.
+
+### Estrutura das telas
+
+1. **Dados iniciais**
+   - Campos obrigatórios: `Título da Ordem`, `Descrição`, `Cliente`, `Data de Entrada`.
+
+2. **Kanban**
+   - Seleção obrigatória de **1 entre 6 opções que existem no KANBAN** (checkbox).
+   - Campo opcional de descrição.
+
+3. **Impressão 3D**
+   - Opção fixa: `Impressão 3D` (checkbox).
+   - Botão **+** para adicionar item personalizado (checkbox obrigatório, com opção de excluir).
+
+4. **Cortes / Dobra**
+   - Opções múltiplas (checkbox): `Chaparia`, `Gabarito Instalação`, `Metalon`, `Plotter`, `Dobra`, `Gabarito Produção`, `Router ACM`, `Acrílico`, `Corte Plasma`, `Laser Acrílico`, `Router MDF`.
+   - Botão **+** para adicionar item personalizado (checkbox obrigatório, com opção de excluir).
+
+5. **Soldas**
+   - Opções múltiplas (checkbox): `Branca`, `Eletrodo`, `MIG`, `TIG`.
+   - Botão **+** para adicionar item personalizado (checkbox obrigatório, com opção de excluir).
+
+6. **Acabamento Grosso**
+   - Opções múltiplas (checkbox): `Desbaste`, `Fino`.
+   - Botão **+** para adicionar item personalizado (checkbox obrigatório, com opção de excluir).
+
+7. **Pintura**
+   - Opções múltiplas (checkbox): `Automotiva`, `Acetinado / Semi-Brilho`, `Laca`, `Eletrostática`, `Brilhante`, `Poliéster`, `Fosco`, `PU`, `Data de Envio`.
+   - Botão **+** para adicionar item personalizado (checkbox obrigatório, com opção de excluir).
+
+8. **Acabamento Final**
+   - Opções múltiplas (checkbox): `ACM`, `Lixamento / Preparação`, `Acrílico`, `MDF`, `Adesivo`, `Pintura`, `Impressão`.
+   - Botão **+** para adicionar item personalizado (checkbox obrigatório, com opção de excluir).
+
+9. **Iluminação**
+   - Opções múltiplas (checkbox): `Fita LED`, `LED / Soldagem / Fiação`, `RGB`, `Haste`, `Módulo LED`, `Lâmpada Tubular / Fiação`, `Refletor / Fiação`.
+   - Campos especiais:
+     - `Temperatura` → valor numérico inteiro positivo, unidade **K**.
+     - `Modelo` → campo de texto livre.
+   - Botão **+** para adicionar item personalizado (checkbox obrigatório, com opção de excluir).
+
+10. **Acessórios**
+    - Opções múltiplas (checkbox): `Barra Roscada`, `Cantoneiras`, `Fita VHB`, `Parabolt`, `Pino Fixador`, `Sikadur`, `Bucha`, `Fiação`, `Fonte`, `Parafuso`, `Prolongador`, `Vidros`, `Canaleta de LED`, `Interruptor LD`, `Mão Amiga`, `Perfil Alumínio`, `Sapata Regulável`.
+    - Botão **+** para adicionar item personalizado (checkbox obrigatório, com opção de excluir).
+
+11. **Colagem**
+    - Opções múltiplas (checkbox): `ACM`, `Módulo de LED`, `Acrílico`, `Primmer`, `Cola / Cianocrilato`, `Silicone / Vedação`, `Fita de Borda`.
+    - Botão **+** para adicionar item personalizado (checkbox obrigatório, com opção de excluir).
+
+
+### Regras Gerais
+- Cada tela deve ser apresentada sequencialmente (ex.: 1/11, 2/11, …).
+- Campos obrigatórios devem impedir avanço sem preenchimento.
+- Botão **+** sempre gera campo obrigatório, com opção de exclusão.
+- Seleções múltiplas permitidas em todas as telas de 3 a 11.
+- No Kanban (tela 2), apenas **1 opção** pode ser marcada.
