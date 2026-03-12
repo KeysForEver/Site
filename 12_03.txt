@@ -1,5 +1,10 @@
+1. Na tela de 'EDITAR PRODUTO' adicione um botão para adicionar algum item a lista de 'UNIDADE' caso o usuario queira, igual existe para o campo 'CATEGORIA' que está do lado
 
-Na tela 'ORDENS DE PRODUÇÃO' quero que o botão 'NOVO' crie o fluxo de telas para preenchimento de uma nova ordem de produção, dividido em etapas sequenciais (1/11, 2/11, …, 11/11). Cada tela contém campos obrigatórios e/ou opções de seleção, com possibilidade de adicionar itens personalizados.
+2. Na tela de 'CONFIGURAÇÕES' adicione um card para 'IMPORTAR BANCO DE DADOS' de forma que quando realizado, substitui o banco de dados atual do sistema, o formato para esse importação tem que ser o mesmo que é gerado pelo backup. A ideia é fazer o backup de vez em quando, e se precisar restaurar todo o banco de dados do sistema usando esse arquivo de backup que foi gerado antes
+
+3. Crie uma ultima etapa no kanban chamado 'CONCLUIDO'
+
+4. Na tela 'ORDENS DE PRODUÇÃO' quero que o botão 'NOVO' crie o fluxo de telas para preenchimento de uma nova ordem de produção, dividido em etapas sequenciais (1/11, 2/11, …, 11/11). Cada tela contém campos obrigatórios e/ou opções de seleção, com possibilidade de adicionar itens personalizados.
 
 ### Estrutura das telas
 
@@ -56,3 +61,6 @@ Na tela 'ORDENS DE PRODUÇÃO' quero que o botão 'NOVO' crie o fluxo de telas p
 - Botão **+** sempre gera campo obrigatório, com opção de exclusão.
 - Seleções múltiplas permitidas em todas as telas de 3 a 11.
 - No Kanban (tela 2), apenas **1 opção** pode ser marcada.
+
+
+5.
