@@ -1,0 +1,19 @@
+1. Na tela 'NOVA ORDEM' crie um novo campo chamado 'DATA ENTREGA', depois mude  a ordem dos campos para:
+- Linha 1: 'TITULO DA ORDEM'
+- Linha 2: 'CLIENTE'
+- Linha 3: 'DATA ENTRADA' , 'DATA ENTREGA'
+- Linha 4: 'DESCRIÇÃO'
+
+2. Em todo o sistema onde em os campos obrigatorios, deve haver uma mensagem para o usuario de erro quando ele tenta completar uma tela sem informar todos os dados, igual existe essas verificações na tela 'ENTRADA DE ESTOQUE'. Porem na tela de 'Nova Ordem' os astericos vermelhos estao corretos, porem o pop up para informar o campos que nao foram preenchidos esta faltando
+
+3. Na tela 'PAINEL' onde tem o gráfico 'VALOR EM ESTOQUE POR CATEGORIA' faça com que o textos de legenda sejam´[font-size="14"] e faça com que seja mais espaçado a margem entre as barras, pois quando temos muitos itens está dificil a leitura
+
+4. Quando a tela muda de desktop para celular e o menu muda para adaptar, ele nao esta voltando ao modo desktop depois, entao tem que ter uma logica que identifique a tela atual e faça com que o menu seja relativo a isso
+
+5. Na tela 'Checklist de Produção' os itens que forem adicionados pelo usuario devem aparecer na parte de 'Processo de Produção' vinculado ao grupos que foram criados
+
+6. Na tela de 'Checklist de Produção' os itens que estiverem em 'Processo de Produção' devem estar em forma de checklist onde o usuario marca os processos que ja foram finalizados, e toda vez que um processo for marcado deve ter um registro no historico, e não pode ser desmarcado, e para isso seria bom ter uma mensagem de confirmação da ação e explicação que esse processo nao pode ser desfeito
+
+7. Na tela de 'CHECKLIST DE PRODUÇÃO' somente quando todos os itens forem marcados no checkbox da parte de 'PROCESSOS DE PRODUÇÃO' é que o card pode se mover no kanban de produção para 'finalização'
+
+8. Faça com que a tecla ESC do teclado feche o modal caso tenha algum aberto
